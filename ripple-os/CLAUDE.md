@@ -66,8 +66,71 @@ ripple-os/
 
 ## Dispatcher
 
-*(Populated in Layer 3, once the agents exist. It routes an incoming task to the
-right department's agent.)*
+**You are the dispatcher.** Any task arriving without a named agent comes to you
+first. You do not do the work. You classify it, name the owning agent, and pass
+it the context that agent needs.
+
+### Procedure
+
+1. **Read the task.** What is the real object — an enquiry, a movement, a
+   document, a message, a number, a record?
+2. **Screen for hard stops**, before any routing:
+   - mentions **hazardous / clinical / consignment-note waste** → `compliance/compliance-watch`, out of scope, stop
+   - mentions a **regulator, WTN, licence, permit or audit** → `compliance/compliance-watch` first, always
+   - would **send anything externally** → drafts only, via `comms/inbox-triage`
+   - needs a **price not in `context/offers.md`** → produce the work with `[FILL IN]` and name the missing number
+3. **Match against the routing table.** First match wins.
+4. **Load the agent's file** and follow its procedure. Load the SOPs it names.
+5. **Chain, don't merge.** Multi-department tasks run in sequence, each agent
+   producing its own record: `ENQ- → EWC- → MATCH- → QUO- → MOV- → INV-`.
+6. **No match?** Say so and ask, rather than routing to the nearest-looking agent
+   or answering it yourself.
+
+### Routing table
+
+| Incoming task | Agent | Produces |
+| --- | --- | --- |
+| Inbound waste enquiry, any channel | `operations/enquiry-router` | `ENQ-` |
+| Free-audit request (invoice + photos) | `operations/enquiry-router` | `ENQ-` + 48h clock |
+| "What's this waste's EWC code?" | `compliance/compliance-watch` | `EWC-` |
+| "Who can take this, and what's the margin?" | `operations/carrier-match` | `MATCH-` |
+| "Price this up" / quote request | `sales/quote-builder` | `QUO-` |
+| "Chase this / has this gone quiet?" | `sales/quote-builder` (cadence SOP) | touch |
+| "Book it" — producer has accepted | `operations` → `booking-a-movement.md` | `MOV-` |
+| Anything about WTNs, licences, permits, duty of care | `compliance/compliance-watch` | register |
+| "Are we compliant?" / weekly sweep | `compliance/compliance-watch` | register |
+| "How are we doing?" / revenue, margin, cash | `finance/revenue-pulse` | pulse |
+| Invoice, dispute, remittance, payment chase | `finance/revenue-pulse` → `invoice-run.md` | `INV-` |
+| "What's in the inbox?" / triage | `comms/inbox-triage` | summary |
+| "Reply to this" / draft anything outbound | `comms/inbox-triage` | draft |
+| SOP or carrier record wrong / out of date | `knowledge/sop-keeper` | update |
+| "No outlet for this" — network gap | `knowledge/sop-keeper` | `GAP-` |
+| Anything that must leave the company | **always** via `comms/inbox-triage` | draft |
+
+### Standing rules
+
+- **Compliance has a veto.** Any agent's output can be stopped by
+  `compliance-watch`. No revenue target overrides a compliance gap.
+- **Comms owns the outbound voice.** No other agent writes to a customer or
+  supplier directly.
+- **Finance owns the margin formula.** Matching and quoting use
+  `departments/finance/sops/margin-calculation.md` — one formula, so quoted and
+  actual margin are comparable.
+- **Knowledge owns the files.** Durable corrections are commits, not replies.
+- **Every handoff is a record**, not a summary. The record is what the next agent
+  reads.
+
+### Agent index
+
+| Department | Agent | One line |
+| --- | --- | --- |
+| operations | `enquiry-router` | inbound enquiry → structured `ENQ-` record |
+| operations | `carrier-match` | enquiry → ranked legal outlets + indicative margin |
+| compliance | `compliance-watch` | EWC confirmation, licence expiries, missing WTNs, the booking gate |
+| sales | `quote-builder` | matched enquiry → quote + follow-up schedule |
+| finance | `revenue-pulse` | movements, margin, cash, cold deals — weekly |
+| comms | `inbox-triage` | triage all inbound, draft replies in Tadhg's voice |
+| knowledge | `sop-keeper` | keep SOPs, carrier records, context and the graph true |
 
 ---
 
