@@ -1,0 +1,252 @@
+# ripple-os — company definition
+# Machine-readable spine. The dashboard graph and the dispatcher both derive
+# from this file. Keep it in sync when you add an agent, SOP, or connector.
+#
+# CONNECTORS ARE DOCUMENTED, NOT LIVE.
+# `tools:` records which MCP connector a department is *allowed* to touch and
+# what it uses it for. Nothing here calls anything yet (Layer 2 = documentation).
+
+company:
+  name: Ripple Recycling
+  legal_name: "[FILL IN — registered company name, e.g. Ripple Recycling Ltd]"
+  company_number: "[FILL IN — Companies House number]"
+  model: waste brokerage (UK, non-hazardous commercial)
+  role: >
+    Arranges movement of waste between producers and licensed carriers /
+    permitted facilities. Does not collect, carry, store or treat waste.
+  revenue_unit: margin per movement
+  registrations:
+    waste_broker_dealer:
+      tier: upper  # required to arrange movements as a broker
+      regulator: Environment Agency (England)
+      number: "[FILL IN — CBDU number]"
+      expires: "[FILL IN — renews annually]"
+    ico_data_protection:
+      number: "[FILL IN]"
+      expires: "[FILL IN]"
+  scope:
+    in: [non-hazardous commercial waste]
+    out: [hazardous waste, consignment-note streams, clinical waste, domestic collections]
+  owner:
+    name: Tadhg
+    email: "[FILL IN — the inbox comms/ triages]"
+    voice: plain, short sentences, understated, no sales adjectives
+
+# Shared palette. graph.json and the dashboard both read these hex values,
+# so a department stays the same colour everywhere.
+departments:
+
+  operations:
+    label: Operations
+    colour: "#2E7D6E"
+    mission: >
+      Turn an inbound waste enquiry into a bookable, priced, compliant movement.
+    owns:
+      - inbound enquiry intake and structuring
+      - EWC classification of the stream (with compliance)
+      - carrier / outlet matching
+      - booking and scheduling movements
+      - movement records
+    agents:
+      - id: enquiry-router
+        file: departments/operations/agents/enquiry-router.md
+      - id: carrier-match
+        file: departments/operations/agents/carrier-match.md
+    sops:
+      - id: enquiry-intake
+        file: departments/operations/sops/enquiry-intake.md
+      - id: booking-a-movement
+        file: departments/operations/sops/booking-a-movement.md
+    tools:
+      - connector: Gmail
+        use: read inbound enquiry threads; send booking confirmations to producer and carrier
+      - connector: Google Calendar
+        use: hold collection dates and site access windows
+      - connector: ClickUp
+        use: one task per enquiry, moved through the movement pipeline
+      - connector: Notion
+        use: read the carrier/outlet network records maintained by knowledge
+
+  compliance:
+    label: Compliance
+    colour: "#B4472E"
+    mission: >
+      Keep every movement defensible: right EWC code, licensed carrier,
+      permitted facility, waste transfer note on file, registrations current.
+    owns:
+      - section 34 duty of care
+      - waste transfer notes (WTNs) and season tickets
+      - carrier registration and facility permit checks
+      - EWC code list and classification rulings
+      - Ripple's own upper-tier broker registration renewal
+    agents:
+      - id: compliance-watch
+        file: departments/compliance/agents/compliance-watch.md
+    sops:
+      - id: duty-of-care-check
+        file: departments/compliance/sops/duty-of-care-check.md
+      - id: wtn-record-keeping
+        file: departments/compliance/sops/wtn-record-keeping.md
+      - id: ewc-classification
+        file: departments/compliance/sops/ewc-classification.md
+    tools:
+      - connector: Google Drive
+        use: WTN PDFs, carrier registration certificates, facility permits — the evidence file
+      - connector: Notion
+        use: licence/permit register with expiry dates
+      - connector: ClickUp
+        use: raise a blocking task when a movement has a compliance gap
+      - connector: Gmail
+        use: chase carriers for missing WTNs and expired certificates
+
+  sales:
+    label: Sales
+    colour: "#C08A2E"
+    mission: >
+      Convert a matched enquiry into a signed price, and never let a live
+      conversation go quiet by accident.
+    owns:
+      - free audit requests (the front door)
+      - quotes and rate cards issued to producers
+      - pipeline stages and follow-up cadence
+      - contract / tender support
+    agents:
+      - id: quote-builder
+        file: departments/sales/agents/quote-builder.md
+    sops:
+      - id: quote-format
+        file: departments/sales/sops/quote-format.md
+      - id: follow-up-cadence
+        file: departments/sales/sops/follow-up-cadence.md
+    tools:
+      - connector: Gmail
+        use: send quotes, run the follow-up sequence
+      - connector: ClickUp
+        use: pipeline board — enquiry → quoted → won / lost
+      - connector: Google Drive
+        use: quote PDFs and the audit one-pager
+      - connector: Google Calendar
+        use: book the follow-up call when one is wanted
+
+  finance:
+    label: Finance
+    colour: "#3B5BA5"
+    mission: >
+      Know the margin on every movement, what has been invoiced, and what is
+      going cold — before it goes cold.
+    owns:
+      - margin per movement (charge-out minus supplier cost)
+      - invoicing and payment chasing
+      - revenue and volume reporting
+      - deal ageing / cold-deal detection
+    agents:
+      - id: revenue-pulse
+        file: departments/finance/agents/revenue-pulse.md
+    sops:
+      - id: margin-calculation
+        file: departments/finance/sops/margin-calculation.md
+      - id: invoice-run
+        file: departments/finance/sops/invoice-run.md
+    tools:
+      - connector: Google Drive
+        use: movement ledger sheet, supplier invoices, issued invoices
+      - connector: ClickUp
+        use: read pipeline + movement tasks for booked/ageing state
+      - connector: Gmail
+        use: send invoices and payment reminders
+      - connector: Notion
+        use: publish the weekly revenue pulse
+    # [ASSUMPTION] No accounting connector (Xero/QuickBooks) is available yet,
+    # so the ledger lives in a Drive sheet. [FILL IN if you use one.]
+
+  comms:
+    label: Comms
+    colour: "#7A5AA6"
+    mission: >
+      One triaged view of everything coming in, and replies that sound like
+      Tadhg wrote them.
+    owns:
+      - inbox triage across channels
+      - drafting replies in the owner's voice
+      - escalating what genuinely needs a human
+      - the voice guide itself
+    agents:
+      - id: inbox-triage
+        file: departments/comms/agents/inbox-triage.md
+    sops:
+      - id: voice-guide
+        file: departments/comms/sops/voice-guide.md
+      - id: triage-rules
+        file: departments/comms/sops/triage-rules.md
+    tools:
+      - connector: Gmail
+        use: read all inboxes, draft replies (drafts only — never auto-send)
+      - connector: Google Calendar
+        use: check availability before offering a time
+      - connector: ClickUp
+        use: turn an email that implies work into a task in the right department
+    # [ASSUMPTION] "All channels" = Gmail only for now. WhatsApp / website form /
+    # LinkedIn have no connector. [FILL IN which other channels matter.]
+
+  knowledge:
+    label: Knowledge
+    colour: "#4A7C3F"
+    mission: >
+      Keep this repo true. SOPs current, carrier records accurate, context files
+      not quietly rotting.
+    owns:
+      - SOP authoring and review
+      - carrier / outlet network records
+      - context/*.md freshness
+      - the graph.json the dashboard reads
+    agents:
+      - id: sop-keeper
+        file: departments/knowledge/agents/sop-keeper.md
+    sops:
+      - id: sop-template
+        file: departments/knowledge/sops/sop-template.md
+      - id: carrier-record-format
+        file: departments/knowledge/sops/carrier-record-format.md
+    tools:
+      - connector: Notion
+        use: mirror carrier records and SOPs where they can be read on a phone
+      - connector: Google Drive
+        use: source documents behind a record (permits, rate sheets)
+      - connector: ClickUp
+        use: review tasks when a SOP passes its review date
+
+# Every connector referenced above, with the account it belongs to.
+connectors:
+  Gmail:
+    status: connected
+    account: "[FILL IN]"
+    used_by: [operations, compliance, sales, finance, comms]
+  Google Calendar:
+    status: connected
+    account: "[FILL IN]"
+    used_by: [operations, sales, comms]
+  Google Drive:
+    status: connected
+    account: "[FILL IN]"
+    used_by: [compliance, sales, finance, knowledge]
+  Notion:
+    status: connected
+    workspace: "[FILL IN]"
+    used_by: [operations, compliance, finance, knowledge]
+  ClickUp:
+    status: connected
+    workspace: "[FILL IN]"
+    used_by: [operations, compliance, sales, finance, comms]
+
+# Layer 2 is documentation only. Nothing in ripple-os calls a connector yet.
+connector_policy:
+  live: false
+  rule: >
+    An agent names the connector it would use and the exact read or write it
+    would make. It does not perform it. When this flips to live, the same
+    per-department `tools:` list becomes the allow-list.
+  never_without_confirmation:
+    - sending any external email (drafts only)
+    - issuing an invoice
+    - confirming a booking to a carrier or producer
+    - editing or deleting anything in a customer-facing system
