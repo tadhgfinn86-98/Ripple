@@ -63,13 +63,20 @@ reliability:
 
 ## The network
 
-`[FILL IN — no carriers, facilities or gate fees are recorded here. Ripple's
-carrier network must not be invented. Add real records below, or point this
-section at the Notion database that holds them.]`
+**Empty. Zero verified suppliers as of 2026-08.**
+
+This is the binding constraint on the whole business. `carrier-match` filters on
+legality first, so with no verified supplier it can return no candidates — every
+enquiry becomes a `GAP-` record and no movement can be booked. Building this
+table is the highest-leverage work in the OS right now, ahead of any sales
+activity.
+
+Ripple's carrier network must never be invented. Add real records below, or point
+this section at the Notion database that holds them.
 
 | Supplier | Type | Base postcode | EWC codes accepted | Carrier reg. expires | Permit expires |
 | --- | --- | --- | --- | --- | --- |
-| `[FILL IN]` | | | | | |
+| — | — | — | — | — | no suppliers verified yet |
 
 ---
 

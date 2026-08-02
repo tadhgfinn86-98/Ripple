@@ -69,8 +69,8 @@ ripple-os/
   company.yaml     ← departments, their agents, their connected tools
   context/         ← shared spine: business, offers, customers, suppliers, goals
   departments/     ← one folder per department: agents/ + sops/
-  data/graph.json  ← nodes + edges the dashboard renders
-  dashboard/       ← single-page node-graph UI of this whole repo
+  data/graph.json  ← nodes + edges the dashboard renders (GENERATED — never hand-edit)
+  dashboard/       ← single-page node-graph UI of this whole repo (`npm run dev`)
 ```
 
 ---

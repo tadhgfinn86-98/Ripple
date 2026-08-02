@@ -1,0 +1,26 @@
+{
+  "name": "ripple-os-dashboard",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Live node-graph map of the ripple-os company structure. Reads ../data/graph.json.",
+  "scripts": {
+    "graph": "node build-graph.mjs",
+    "predev": "npm run graph",
+    "dev": "vite",
+    "prebuild": "npm run graph",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "d3-force": "^3.0.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-force-graph-2d": "^1.25.5"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.3.4",
+    "vite": "^5.4.11",
+    "yaml": "^2.6.1"
+  }
+}

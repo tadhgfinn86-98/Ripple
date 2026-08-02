@@ -41,9 +41,10 @@ A repo that quietly rots is worse than no repo, because agents keep trusting it.
 6. **Check context freshness.** `goals.md` still current-quarter? `offers.md`
    still matching what's quoted? `customers.md` and `suppliers.md` still pointing
    at real records?
-7. **Rebuild the graph.** Regenerate `data/graph.json` from `company.yaml` and the
-   files on disk so the dashboard shows what exists, not what once existed. A
-   node for a deleted agent is a lie the dashboard tells confidently.
+7. **Rebuild the graph.** Run `npm run graph` in `dashboard/` to regenerate
+   `data/graph.json` from `company.yaml` and the files on disk, so the dashboard
+   shows what exists rather than what once existed. A node for a deleted agent is
+   a lie the dashboard tells confidently. Never hand-edit `graph.json`.
 8. **Emit the knowledge report** (below) and raise ClickUp review tasks.
 9. **Would-write.** Name the Notion pages you would mirror and the ClickUp tasks
    you would raise. Do not call the connector.

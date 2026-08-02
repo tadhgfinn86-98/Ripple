@@ -54,7 +54,7 @@ departments:
 
   operations:
     label: Operations
-    colour: "#2E7D6E"
+    colour: "#3E9E8A"
     mission: >
       Turn an inbound waste enquiry into a bookable, priced, compliant movement.
     owns:
@@ -85,7 +85,7 @@ departments:
 
   compliance:
     label: Compliance
-    colour: "#B4472E"
+    colour: "#D0684A"
     mission: >
       Keep every movement defensible: right EWC code, licensed carrier,
       permitted facility, waste transfer note on file, registrations current.
@@ -117,7 +117,7 @@ departments:
 
   sales:
     label: Sales
-    colour: "#C08A2E"
+    colour: "#D9A441"
     mission: >
       Convert a matched enquiry into a signed price, and never let a live
       conversation go quiet by accident.
@@ -146,12 +146,12 @@ departments:
 
   finance:
     label: Finance
-    colour: "#3B5BA5"
+    colour: "#5A7FD0"
     mission: >
       Know what every customer earns Ripple in fees, whether the saving Ripple
       claimed is real, and what is going cold — before it goes cold.
     owns:
-      - fee revenue: savings share, managed value, audit, compliance
+      - fee revenue — savings share, managed value, audit, compliance
       - verifying claimed savings against actual supplier invoices
       - supplier cost pass-through (checked, not marked up)
       - invoicing and payment chasing
@@ -179,7 +179,7 @@ departments:
 
   comms:
     label: Comms
-    colour: "#7A5AA6"
+    colour: "#9B7BC8"
     mission: >
       One triaged view of everything coming in, and replies that sound like
       Tadhg wrote them.
@@ -208,7 +208,7 @@ departments:
 
   knowledge:
     label: Knowledge
-    colour: "#4A7C3F"
+    colour: "#6BA355"
     mission: >
       Keep this repo true. SOPs current, carrier records accurate, context files
       not quietly rotting.

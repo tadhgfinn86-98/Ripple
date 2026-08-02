@@ -1,5 +1,6 @@
 # Goals — current quarter
 
+> **Ripple is pre-revenue.** Every baseline below is a true zero, not an unknown.
 > Quarter: `[FILL IN — e.g. Q3 2026, Jul–Sep]`
 > Last reviewed: `[FILL IN]` · Review cadence: `[FILL IN — weekly?]`
 >
@@ -15,24 +16,27 @@
 
 | # | Goal | Metric | Baseline | Target | Owner dept | Status |
 | --- | --- | --- | --- | --- | --- | --- |
-| 1 | Grow booked movements | movements/month | `[FILL IN]` | `[FILL IN]` | operations | `[FILL IN]` |
-| 2 | Win new contracted customers | new contracts | `[FILL IN]` | `[FILL IN]` | sales | `[FILL IN]` |
-| 3 | Grow fee revenue | £ fees booked | `[FILL IN]` | `[FILL IN]` | finance | `[FILL IN]` |
-| 3b | Build recurring revenue | retained compliance clients @ £30–75/mo | `[FILL IN]` | `[FILL IN]` | finance | `[FILL IN]` |
-| 4 | Widen the carrier network | verified suppliers | `[FILL IN]` | `[FILL IN]` | knowledge | `[FILL IN]` |
-| 5 | Zero compliance gaps | movements missing a WTN | `[FILL IN]` | **0** | compliance | `[FILL IN]` |
+| 0 | **Build the carrier network** — nothing works without it | verified suppliers | **0** | `[FILL IN]` | knowledge | not started |
+| 0b | **Upper-tier broker registration in place** | registered | `[FILL IN — yes/no?]` | yes | compliance | `[FILL IN]` |
+| 1 | First movement arranged | movements/month | **0** | `[FILL IN]` | operations | not started |
+| 2 | First contracted customer | new contracts | **0** | `[FILL IN]` | sales | not started |
+| 3 | First fee earned | £ fees booked | **£0** | `[FILL IN]` | finance | not started |
+| 3b | Build recurring revenue | retained compliance clients @ £30–75/mo | **0** | `[FILL IN]` | finance | not started |
+| 5 | Zero compliance gaps | movements missing a WTN | **0** | **0** | compliance | held |
 | 6 | Turn audits round in 48h | % inside 48h | `[FILL IN]` | `[FILL IN]` | sales | `[FILL IN]` |
 | 7 | Raise landfill diversion | % diverted | `[FILL IN]` | `[FILL IN]` | operations | `[FILL IN]` |
 
-`[ASSUMPTION]` Goals 1–7 are the categories a broker at this stage would track,
-inferred from the business model and the site's four commitments. Delete any
-that aren't real and add the ones that are.
+`[ASSUMPTION]` These are the categories a pre-revenue broker would track. Goal 0
+is deliberately first: with zero verified suppliers, matching returns nothing and
+sales activity generates `GAP-` records instead of movements. Building supply
+before demand is the ordering this quarter. Delete any goal that isn't real.
 
 ## Rate to watch
 
-Movements booked per week needed to hit target 1: `[FILL IN]`
-Enquiries per week needed at current conversion rate: `[FILL IN]`
-Current conversion rate, enquiry → booked: `[FILL IN]`
+Verified suppliers needed before the first enquiry can be served: **at least 1
+per EWC code, per postcode area targeted** — `[FILL IN — which areas first?]`
+Movements per week needed to hit target 1: `[FILL IN]`
+Conversion rate, enquiry → booked: **no data — nothing has run yet**
 
 ## Constraints this quarter
 

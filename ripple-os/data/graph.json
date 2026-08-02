@@ -1,0 +1,1027 @@
+{
+  "generated": "2026-08-02",
+  "generatedBy": "dashboard/build-graph.mjs — derived from company.yaml, do not hand-edit",
+  "company": {
+    "name": "Ripple Recycling",
+    "model": "waste brokerage (UK, non-hazardous commercial)",
+    "revenueUnit": "fee per customer per year",
+    "pricing": {
+      "brokerage": {
+        "savings_share": 0.5,
+        "managed_value": 0.15,
+        "year_two_onward": "[FILL IN — unset; blocks any quote past month 12]"
+      },
+      "audit": {
+        "free_tier": 0,
+        "paid_deep": [
+          150,
+          400
+        ]
+      },
+      "compliance": {
+        "one_off": [
+          150,
+          350
+        ],
+        "retained_monthly": [
+          30,
+          75
+        ]
+      },
+      "contract_tender_support": "[FILL IN]",
+      "reporting_retainer": "[FILL IN]"
+    },
+    "stage": "pre-revenue — 0 customers, 0 verified suppliers as of 2026-08"
+  },
+  "connectorsLive": false,
+  "departments": {
+    "operations": {
+      "label": "Operations",
+      "colour": "#3E9E8A"
+    },
+    "compliance": {
+      "label": "Compliance",
+      "colour": "#D0684A"
+    },
+    "sales": {
+      "label": "Sales",
+      "colour": "#D9A441"
+    },
+    "finance": {
+      "label": "Finance",
+      "colour": "#5A7FD0"
+    },
+    "comms": {
+      "label": "Comms",
+      "colour": "#9B7BC8"
+    },
+    "knowledge": {
+      "label": "Knowledge",
+      "colour": "#6BA355"
+    }
+  },
+  "contextFiles": [
+    {
+      "name": "business",
+      "file": "context/business.md",
+      "openQuestions": 9
+    },
+    {
+      "name": "offers",
+      "file": "context/offers.md",
+      "openQuestions": 47
+    },
+    {
+      "name": "customers",
+      "file": "context/customers.md",
+      "openQuestions": 27
+    },
+    {
+      "name": "suppliers",
+      "file": "context/suppliers.md",
+      "openQuestions": 40
+    },
+    {
+      "name": "goals",
+      "file": "context/goals.md",
+      "openQuestions": 26
+    }
+  ],
+  "nodes": [
+    {
+      "id": "dept:operations",
+      "type": "department",
+      "label": "Operations",
+      "department": "operations",
+      "colour": "#3E9E8A",
+      "size": 18,
+      "mission": "Turn an inbound waste enquiry into a bookable, priced, compliant movement.",
+      "owns": [
+        "inbound enquiry intake and structuring",
+        "EWC classification of the stream (with compliance)",
+        "carrier / outlet matching",
+        "booking and scheduling movements",
+        "movement records"
+      ],
+      "file": "company.yaml",
+      "agentCount": 2,
+      "sopCount": 2,
+      "connectors": [
+        "Gmail",
+        "Google Calendar",
+        "ClickUp",
+        "Notion"
+      ]
+    },
+    {
+      "id": "dept:compliance",
+      "type": "department",
+      "label": "Compliance",
+      "department": "compliance",
+      "colour": "#D0684A",
+      "size": 18,
+      "mission": "Keep every movement defensible: right EWC code, licensed carrier, permitted facility, waste transfer note on file, registrations current.",
+      "owns": [
+        "section 34 duty of care",
+        "waste transfer notes (WTNs) and season tickets",
+        "carrier registration and facility permit checks",
+        "EWC code list and classification rulings",
+        "Ripple's own upper-tier broker registration renewal"
+      ],
+      "file": "company.yaml",
+      "agentCount": 1,
+      "sopCount": 3,
+      "connectors": [
+        "Google Drive",
+        "Notion",
+        "ClickUp",
+        "Gmail"
+      ]
+    },
+    {
+      "id": "dept:sales",
+      "type": "department",
+      "label": "Sales",
+      "department": "sales",
+      "colour": "#D9A441",
+      "size": 18,
+      "mission": "Convert a matched enquiry into a signed price, and never let a live conversation go quiet by accident.",
+      "owns": [
+        "free audit requests (the front door)",
+        "quotes and rate cards issued to producers",
+        "pipeline stages and follow-up cadence",
+        "contract / tender support"
+      ],
+      "file": "company.yaml",
+      "agentCount": 1,
+      "sopCount": 2,
+      "connectors": [
+        "Gmail",
+        "ClickUp",
+        "Google Drive",
+        "Google Calendar"
+      ]
+    },
+    {
+      "id": "dept:finance",
+      "type": "department",
+      "label": "Finance",
+      "department": "finance",
+      "colour": "#5A7FD0",
+      "size": 18,
+      "mission": "Know what every customer earns Ripple in fees, whether the saving Ripple claimed is real, and what is going cold — before it goes cold.",
+      "owns": [
+        "fee revenue — savings share, managed value, audit, compliance",
+        "verifying claimed savings against actual supplier invoices",
+        "supplier cost pass-through (checked, not marked up)",
+        "invoicing and payment chasing",
+        "the month-12 cliff and recurring run rate",
+        "deal ageing / cold-deal detection"
+      ],
+      "file": "company.yaml",
+      "agentCount": 1,
+      "sopCount": 2,
+      "connectors": [
+        "Google Drive",
+        "ClickUp",
+        "Gmail",
+        "Notion"
+      ]
+    },
+    {
+      "id": "dept:comms",
+      "type": "department",
+      "label": "Comms",
+      "department": "comms",
+      "colour": "#9B7BC8",
+      "size": 18,
+      "mission": "One triaged view of everything coming in, and replies that sound like Tadhg wrote them.",
+      "owns": [
+        "inbox triage across channels",
+        "drafting replies in the owner's voice",
+        "escalating what genuinely needs a human",
+        "the voice guide itself"
+      ],
+      "file": "company.yaml",
+      "agentCount": 1,
+      "sopCount": 2,
+      "connectors": [
+        "Gmail",
+        "Google Calendar",
+        "ClickUp"
+      ]
+    },
+    {
+      "id": "dept:knowledge",
+      "type": "department",
+      "label": "Knowledge",
+      "department": "knowledge",
+      "colour": "#6BA355",
+      "size": 18,
+      "mission": "Keep this repo true. SOPs current, carrier records accurate, context files not quietly rotting.",
+      "owns": [
+        "SOP authoring and review",
+        "carrier / outlet network records",
+        "context/*.md freshness",
+        "the graph.json the dashboard reads"
+      ],
+      "file": "company.yaml",
+      "agentCount": 1,
+      "sopCount": 2,
+      "connectors": [
+        "Notion",
+        "Google Drive",
+        "ClickUp"
+      ]
+    },
+    {
+      "id": "tool:Gmail",
+      "type": "tool",
+      "label": "Gmail",
+      "department": null,
+      "colour": "#8A938E",
+      "size": 7,
+      "status": "connected",
+      "live": false,
+      "usedBy": [
+        "operations",
+        "compliance",
+        "sales",
+        "finance",
+        "comms"
+      ],
+      "uses": [
+        {
+          "department": "operations",
+          "use": "read inbound enquiry threads; send booking confirmations to producer and carrier"
+        },
+        {
+          "department": "compliance",
+          "use": "chase carriers for missing WTNs and expired certificates"
+        },
+        {
+          "department": "sales",
+          "use": "send quotes, run the follow-up sequence"
+        },
+        {
+          "department": "finance",
+          "use": "send invoices and payment reminders"
+        },
+        {
+          "department": "comms",
+          "use": "read all inboxes, draft replies (drafts only — never auto-send)"
+        }
+      ],
+      "file": "company.yaml"
+    },
+    {
+      "id": "tool:Google Calendar",
+      "type": "tool",
+      "label": "Google Calendar",
+      "department": null,
+      "colour": "#8A938E",
+      "size": 7,
+      "status": "connected",
+      "live": false,
+      "usedBy": [
+        "operations",
+        "sales",
+        "comms"
+      ],
+      "uses": [
+        {
+          "department": "operations",
+          "use": "hold collection dates and site access windows"
+        },
+        {
+          "department": "sales",
+          "use": "book the follow-up call when one is wanted"
+        },
+        {
+          "department": "comms",
+          "use": "check availability before offering a time"
+        }
+      ],
+      "file": "company.yaml"
+    },
+    {
+      "id": "tool:Google Drive",
+      "type": "tool",
+      "label": "Google Drive",
+      "department": null,
+      "colour": "#8A938E",
+      "size": 7,
+      "status": "connected",
+      "live": false,
+      "usedBy": [
+        "compliance",
+        "sales",
+        "finance",
+        "knowledge"
+      ],
+      "uses": [
+        {
+          "department": "compliance",
+          "use": "WTN PDFs, carrier registration certificates, facility permits — the evidence file"
+        },
+        {
+          "department": "sales",
+          "use": "quote PDFs and the audit one-pager"
+        },
+        {
+          "department": "finance",
+          "use": "movement ledger sheet, supplier invoices, issued invoices"
+        },
+        {
+          "department": "knowledge",
+          "use": "source documents behind a record (permits, rate sheets)"
+        }
+      ],
+      "file": "company.yaml"
+    },
+    {
+      "id": "tool:Notion",
+      "type": "tool",
+      "label": "Notion",
+      "department": null,
+      "colour": "#8A938E",
+      "size": 7,
+      "status": "connected",
+      "live": false,
+      "usedBy": [
+        "operations",
+        "compliance",
+        "finance",
+        "knowledge"
+      ],
+      "uses": [
+        {
+          "department": "operations",
+          "use": "read the carrier/outlet network records maintained by knowledge"
+        },
+        {
+          "department": "compliance",
+          "use": "licence/permit register with expiry dates"
+        },
+        {
+          "department": "finance",
+          "use": "publish the weekly revenue pulse"
+        },
+        {
+          "department": "knowledge",
+          "use": "mirror carrier records and SOPs where they can be read on a phone"
+        }
+      ],
+      "file": "company.yaml"
+    },
+    {
+      "id": "tool:ClickUp",
+      "type": "tool",
+      "label": "ClickUp",
+      "department": null,
+      "colour": "#8A938E",
+      "size": 7,
+      "status": "connected",
+      "live": false,
+      "usedBy": [
+        "operations",
+        "compliance",
+        "sales",
+        "finance",
+        "comms"
+      ],
+      "uses": [
+        {
+          "department": "operations",
+          "use": "one task per enquiry, moved through the movement pipeline"
+        },
+        {
+          "department": "compliance",
+          "use": "raise a blocking task when a movement has a compliance gap"
+        },
+        {
+          "department": "sales",
+          "use": "pipeline board — enquiry → quoted → won / lost"
+        },
+        {
+          "department": "finance",
+          "use": "read pipeline + movement tasks for booked/ageing state"
+        },
+        {
+          "department": "comms",
+          "use": "turn an email that implies work into a task in the right department"
+        },
+        {
+          "department": "knowledge",
+          "use": "review tasks when a SOP passes its review date"
+        }
+      ],
+      "file": "company.yaml"
+    },
+    {
+      "id": "agent:enquiry-router",
+      "type": "agent",
+      "label": "enquiry-router",
+      "department": "operations",
+      "colour": "#3E9E8A",
+      "size": 11,
+      "role": "Turn an inbound waste enquiry into a structured, complete enquiry record.",
+      "summary": "One line: I read whatever came in and turn it into an ENQ- record that the",
+      "trigger": "A new inbound enquiry arrives by any channel — email, website audit request, phone note, referral — or comms/inbox-triage hands one over.",
+      "tools": [
+        "Gmail",
+        "ClickUp",
+        "Notion"
+      ],
+      "toolsMode": "documented-only",
+      "handoffTo": [
+        "compliance/compliance-watch",
+        "operations/carrier-match"
+      ],
+      "file": "departments/operations/agents/enquiry-router.md",
+      "openQuestions": 0
+    },
+    {
+      "id": "agent:carrier-match",
+      "type": "agent",
+      "label": "carrier-match",
+      "department": "operations",
+      "colour": "#3E9E8A",
+      "size": 11,
+      "role": "Match a complete enquiry to a legal, near, lowest-cost outlet and size the saving it creates.",
+      "summary": "One line: Given a confirmed stream and a postcode, I produce a ranked",
+      "trigger": "An `ENQ-` record reaches `completeness: complete` and compliance has confirmed the EWC code and cleared the hazardous screen.",
+      "tools": [
+        "Notion",
+        "ClickUp",
+        "Gmail"
+      ],
+      "toolsMode": "documented-only",
+      "handoffTo": [
+        "sales/quote-builder",
+        "compliance/compliance-watch",
+        "knowledge/sop-keeper"
+      ],
+      "file": "departments/operations/agents/carrier-match.md",
+      "openQuestions": 14
+    },
+    {
+      "id": "agent:compliance-watch",
+      "type": "agent",
+      "label": "compliance-watch",
+      "department": "compliance",
+      "colour": "#D0684A",
+      "size": 11,
+      "role": "Flag missing WTNs, expiring licences and duty-of-care gaps before they become breaches.",
+      "summary": "One line: I am the hard gate. I confirm EWC codes, verify carriers and",
+      "trigger": "(a) weekly sweep; (b) any movement reaching the booking gate; (c) an EWC code needs confirming; (d) a new supplier is proposed; (e) anything touches hazardous waste.",
+      "tools": [
+        "Google Drive",
+        "Notion",
+        "ClickUp",
+        "Gmail"
+      ],
+      "toolsMode": "documented-only",
+      "handoffTo": [
+        "operations/carrier-match",
+        "knowledge/sop-keeper",
+        "comms/inbox-triage"
+      ],
+      "file": "departments/compliance/agents/compliance-watch.md",
+      "openQuestions": 2
+    },
+    {
+      "id": "agent:quote-builder",
+      "type": "agent",
+      "label": "quote-builder",
+      "department": "sales",
+      "colour": "#D9A441",
+      "size": 11,
+      "role": "Turn a matched enquiry into a clear quote and a follow-up schedule that actually runs.",
+      "summary": "One line: I take the matched enquiry and produce a quote the producer can say",
+      "trigger": "A `MATCH-` record arrives from operations/carrier-match with a recommended outlet, or Tadhg asks for a quote on a live enquiry.",
+      "tools": [
+        "Gmail",
+        "ClickUp",
+        "Google Drive",
+        "Google Calendar"
+      ],
+      "toolsMode": "documented-only",
+      "handoffTo": [
+        "comms/inbox-triage",
+        "operations/carrier-match",
+        "finance/revenue-pulse"
+      ],
+      "file": "departments/sales/agents/quote-builder.md",
+      "openQuestions": 14
+    },
+    {
+      "id": "agent:revenue-pulse",
+      "type": "agent",
+      "label": "revenue-pulse",
+      "department": "finance",
+      "colour": "#5A7FD0",
+      "size": 11,
+      "role": "Report fee revenue earned, savings actually realised, and what's going cold — weekly, without being asked.",
+      "summary": "One line: Every week I say what got booked, what Ripple earned in fees,",
+      "trigger": "Weekly on `[FILL IN — day]`; on request; and immediately when a customer's realised saving drifts materially below the saving their fee was quoted on.",
+      "tools": [
+        "Google Drive",
+        "ClickUp",
+        "Gmail",
+        "Notion"
+      ],
+      "toolsMode": "documented-only",
+      "handoffTo": [
+        "sales/quote-builder",
+        "operations/carrier-match",
+        "comms/inbox-triage"
+      ],
+      "file": "departments/finance/agents/revenue-pulse.md",
+      "openQuestions": 12
+    },
+    {
+      "id": "agent:inbox-triage",
+      "type": "agent",
+      "label": "inbox-triage",
+      "department": "comms",
+      "colour": "#9B7BC8",
+      "size": 11,
+      "role": "Read everything coming in, flag what genuinely needs Tadhg, draft the rest in his voice.",
+      "summary": "One line: I read the inbox, sort it into four buckets, draft the replies in",
+      "trigger": "Twice daily — morning and end of day — and on demand. Also whenever another department produces something that must go outside the company.",
+      "tools": [
+        "Gmail",
+        "Google Calendar",
+        "ClickUp"
+      ],
+      "toolsMode": "documented-only",
+      "handoffTo": [
+        "operations/enquiry-router",
+        "compliance/compliance-watch",
+        "sales/quote-builder",
+        "finance/revenue-pulse"
+      ],
+      "file": "departments/comms/agents/inbox-triage.md",
+      "openQuestions": 4
+    },
+    {
+      "id": "agent:sop-keeper",
+      "type": "agent",
+      "label": "sop-keeper",
+      "department": "knowledge",
+      "colour": "#6BA355",
+      "size": 11,
+      "role": "Keep SOPs, carrier records and context files true — and the graph in sync with them.",
+      "summary": "One line: I keep this repo honest — SOPs current, carrier records complete,",
+      "trigger": "Monthly review sweep; whenever a `[FILL IN]` is answered; whenever an agent reports a network gap, a rate change, or a process that didn't match its SOP.",
+      "tools": [
+        "Notion",
+        "Google Drive",
+        "ClickUp"
+      ],
+      "toolsMode": "documented-only",
+      "handoffTo": [
+        "compliance/compliance-watch",
+        "operations/carrier-match",
+        "comms/inbox-triage"
+      ],
+      "file": "departments/knowledge/agents/sop-keeper.md",
+      "openQuestions": 7
+    },
+    {
+      "id": "sop:enquiry-intake",
+      "type": "sop",
+      "label": "enquiry-intake",
+      "department": "operations",
+      "colour": "#3E9E8A",
+      "size": 7,
+      "purpose": "Every inbound enquiry becomes one `ENQ-` record with the same eight fields, whatever channel it arrived on, within one working day.",
+      "usedBy": [
+        "enquiry-router",
+        "inbox-triage"
+      ],
+      "reviewDate": "[FILL IN]",
+      "file": "departments/operations/sops/enquiry-intake.md",
+      "openQuestions": 1
+    },
+    {
+      "id": "sop:booking-a-movement",
+      "type": "sop",
+      "label": "booking-a-movement",
+      "department": "operations",
+      "colour": "#3E9E8A",
+      "size": 7,
+      "purpose": "A movement is only booked when it is legal, priced, accepted, and documented. This SOP is the gate.",
+      "usedBy": [
+        "carrier-match",
+        "compliance-watch",
+        "revenue-pulse"
+      ],
+      "reviewDate": "[FILL IN]",
+      "file": "departments/operations/sops/booking-a-movement.md",
+      "openQuestions": 5
+    },
+    {
+      "id": "sop:duty-of-care-check",
+      "type": "sop",
+      "label": "duty-of-care-check",
+      "department": "compliance",
+      "colour": "#D0684A",
+      "size": 7,
+      "purpose": "Prove, per movement, that the waste goes only to an authorised person and that a record exists. This is the section 34 duty of care under the Environmental Protection Act 1990, and Ripple is a party in the chain as broker.",
+      "usedBy": [
+        "compliance-watch",
+        "carrier-match"
+      ],
+      "reviewDate": "[FILL IN]",
+      "file": "departments/compliance/sops/duty-of-care-check.md",
+      "openQuestions": 2
+    },
+    {
+      "id": "sop:wtn-record-keeping",
+      "type": "sop",
+      "label": "wtn-record-keeping",
+      "department": "compliance",
+      "colour": "#D0684A",
+      "size": 7,
+      "purpose": "Every non-hazardous transfer Ripple arranges has a complete, retrievable waste transfer note. Target: **zero movements without a WTN** (goal 5 in `context/goals.md`).",
+      "usedBy": [
+        "compliance-watch",
+        "revenue-pulse"
+      ],
+      "reviewDate": "[FILL IN]",
+      "file": "departments/compliance/sops/wtn-record-keeping.md",
+      "openQuestions": 6
+    },
+    {
+      "id": "sop:ewc-classification",
+      "type": "sop",
+      "label": "ewc-classification",
+      "department": "compliance",
+      "colour": "#D0684A",
+      "size": 7,
+      "purpose": "Put the right six-digit code on every stream. Misclassification is the most common broker failure: it causes rejected loads, wrong gate fees, and duty-of-care breaches.",
+      "usedBy": [
+        "compliance-watch",
+        "enquiry-router",
+        "carrier-match"
+      ],
+      "reviewDate": "[FILL IN]",
+      "file": "departments/compliance/sops/ewc-classification.md",
+      "openQuestions": 3
+    },
+    {
+      "id": "sop:quote-format",
+      "type": "sop",
+      "label": "quote-format",
+      "department": "sales",
+      "colour": "#D9A441",
+      "size": 7,
+      "purpose": "Every quote looks the same, prices the same way, and can be compared against the incumbent hauler's invoice without a translation step.",
+      "usedBy": [
+        "quote-builder",
+        "inbox-triage"
+      ],
+      "reviewDate": "[FILL IN]",
+      "file": "departments/sales/sops/quote-format.md",
+      "openQuestions": 9
+    },
+    {
+      "id": "sop:follow-up-cadence",
+      "type": "sop",
+      "label": "follow-up-cadence",
+      "department": "sales",
+      "colour": "#D9A441",
+      "size": 7,
+      "purpose": "Nothing goes quiet by accident. Every live conversation has a next touch with a date on it.",
+      "usedBy": [
+        "quote-builder",
+        "inbox-triage",
+        "revenue-pulse"
+      ],
+      "reviewDate": "[FILL IN]",
+      "file": "departments/sales/sops/follow-up-cadence.md",
+      "openQuestions": 4
+    },
+    {
+      "id": "sop:fee-calculation",
+      "type": "sop",
+      "label": "fee-calculation",
+      "department": "finance",
+      "colour": "#5A7FD0",
+      "size": 7,
+      "purpose": "One method for computing what Ripple earns, used identically by matching, quoting and invoicing.",
+      "usedBy": [
+        "revenue-pulse",
+        "carrier-match",
+        "quote-builder"
+      ],
+      "reviewDate": "[FILL IN]",
+      "file": "departments/finance/sops/fee-calculation.md",
+      "openQuestions": 9
+    },
+    {
+      "id": "sop:invoice-run",
+      "type": "sop",
+      "label": "invoice-run",
+      "department": "finance",
+      "colour": "#5A7FD0",
+      "size": 7,
+      "purpose": "Every collected movement gets invoiced, once, correctly, on schedule.",
+      "usedBy": [
+        "revenue-pulse",
+        "compliance-watch"
+      ],
+      "reviewDate": "[FILL IN]",
+      "file": "departments/finance/sops/invoice-run.md",
+      "openQuestions": 16
+    },
+    {
+      "id": "sop:voice-guide",
+      "type": "sop",
+      "label": "voice-guide",
+      "department": "comms",
+      "colour": "#9B7BC8",
+      "size": 7,
+      "purpose": "Everything Ripple sends outward sounds like one person wrote it: Tadhg. Derived from Ripple's own site copy — *\"Waste, handled properly.\"*",
+      "usedBy": [
+        "inbox-triage",
+        "quote-builder",
+        "sop-keeper"
+      ],
+      "reviewDate": "[FILL IN]",
+      "file": "departments/comms/sops/voice-guide.md",
+      "openQuestions": 2
+    },
+    {
+      "id": "sop:triage-rules",
+      "type": "sop",
+      "label": "triage-rules",
+      "department": "comms",
+      "colour": "#9B7BC8",
+      "size": 7,
+      "purpose": "Every incoming message lands in exactly one of four buckets, by rule, not by feel.",
+      "usedBy": [
+        "inbox-triage"
+      ],
+      "reviewDate": "[FILL IN]",
+      "file": "departments/comms/sops/triage-rules.md",
+      "openQuestions": 3
+    },
+    {
+      "id": "sop:sop-template",
+      "type": "sop",
+      "label": "sop-template",
+      "department": "knowledge",
+      "colour": "#6BA355",
+      "size": 7,
+      "purpose": "Every SOP in ripple-os has the same shape, so an agent can read any of them without learning a new format.",
+      "usedBy": [
+        "sop-keeper"
+      ],
+      "reviewDate": "[FILL IN]",
+      "file": "departments/knowledge/sops/sop-template.md",
+      "openQuestions": 2
+    },
+    {
+      "id": "sop:carrier-record-format",
+      "type": "sop",
+      "label": "carrier-record-format",
+      "department": "knowledge",
+      "colour": "#6BA355",
+      "size": 7,
+      "purpose": "Every supplier record holds the same fields, so `carrier-match` can rank on them and `compliance-watch` can check them without asking a human.",
+      "usedBy": [
+        "sop-keeper",
+        "carrier-match",
+        "compliance-watch"
+      ],
+      "reviewDate": "[FILL IN]",
+      "file": "departments/knowledge/sops/carrier-record-format.md",
+      "openQuestions": 4
+    }
+  ],
+  "links": [
+    {
+      "source": "agent:enquiry-router",
+      "target": "dept:operations",
+      "kind": "agent-department"
+    },
+    {
+      "source": "agent:enquiry-router",
+      "target": "tool:Gmail",
+      "kind": "agent-tool"
+    },
+    {
+      "source": "agent:enquiry-router",
+      "target": "tool:ClickUp",
+      "kind": "agent-tool"
+    },
+    {
+      "source": "agent:enquiry-router",
+      "target": "tool:Notion",
+      "kind": "agent-tool"
+    },
+    {
+      "source": "agent:carrier-match",
+      "target": "dept:operations",
+      "kind": "agent-department"
+    },
+    {
+      "source": "agent:carrier-match",
+      "target": "tool:Notion",
+      "kind": "agent-tool"
+    },
+    {
+      "source": "agent:carrier-match",
+      "target": "tool:ClickUp",
+      "kind": "agent-tool"
+    },
+    {
+      "source": "agent:carrier-match",
+      "target": "tool:Gmail",
+      "kind": "agent-tool"
+    },
+    {
+      "source": "agent:compliance-watch",
+      "target": "dept:compliance",
+      "kind": "agent-department"
+    },
+    {
+      "source": "agent:compliance-watch",
+      "target": "tool:Google Drive",
+      "kind": "agent-tool"
+    },
+    {
+      "source": "agent:compliance-watch",
+      "target": "tool:Notion",
+      "kind": "agent-tool"
+    },
+    {
+      "source": "agent:compliance-watch",
+      "target": "tool:ClickUp",
+      "kind": "agent-tool"
+    },
+    {
+      "source": "agent:compliance-watch",
+      "target": "tool:Gmail",
+      "kind": "agent-tool"
+    },
+    {
+      "source": "agent:quote-builder",
+      "target": "dept:sales",
+      "kind": "agent-department"
+    },
+    {
+      "source": "agent:quote-builder",
+      "target": "tool:Gmail",
+      "kind": "agent-tool"
+    },
+    {
+      "source": "agent:quote-builder",
+      "target": "tool:ClickUp",
+      "kind": "agent-tool"
+    },
+    {
+      "source": "agent:quote-builder",
+      "target": "tool:Google Drive",
+      "kind": "agent-tool"
+    },
+    {
+      "source": "agent:quote-builder",
+      "target": "tool:Google Calendar",
+      "kind": "agent-tool"
+    },
+    {
+      "source": "agent:revenue-pulse",
+      "target": "dept:finance",
+      "kind": "agent-department"
+    },
+    {
+      "source": "agent:revenue-pulse",
+      "target": "tool:Google Drive",
+      "kind": "agent-tool"
+    },
+    {
+      "source": "agent:revenue-pulse",
+      "target": "tool:ClickUp",
+      "kind": "agent-tool"
+    },
+    {
+      "source": "agent:revenue-pulse",
+      "target": "tool:Gmail",
+      "kind": "agent-tool"
+    },
+    {
+      "source": "agent:revenue-pulse",
+      "target": "tool:Notion",
+      "kind": "agent-tool"
+    },
+    {
+      "source": "agent:inbox-triage",
+      "target": "dept:comms",
+      "kind": "agent-department"
+    },
+    {
+      "source": "agent:inbox-triage",
+      "target": "tool:Gmail",
+      "kind": "agent-tool"
+    },
+    {
+      "source": "agent:inbox-triage",
+      "target": "tool:Google Calendar",
+      "kind": "agent-tool"
+    },
+    {
+      "source": "agent:inbox-triage",
+      "target": "tool:ClickUp",
+      "kind": "agent-tool"
+    },
+    {
+      "source": "agent:sop-keeper",
+      "target": "dept:knowledge",
+      "kind": "agent-department"
+    },
+    {
+      "source": "agent:sop-keeper",
+      "target": "tool:Notion",
+      "kind": "agent-tool"
+    },
+    {
+      "source": "agent:sop-keeper",
+      "target": "tool:Google Drive",
+      "kind": "agent-tool"
+    },
+    {
+      "source": "agent:sop-keeper",
+      "target": "tool:ClickUp",
+      "kind": "agent-tool"
+    },
+    {
+      "source": "sop:enquiry-intake",
+      "target": "dept:operations",
+      "kind": "sop-department"
+    },
+    {
+      "source": "sop:booking-a-movement",
+      "target": "dept:operations",
+      "kind": "sop-department"
+    },
+    {
+      "source": "sop:duty-of-care-check",
+      "target": "dept:compliance",
+      "kind": "sop-department"
+    },
+    {
+      "source": "sop:wtn-record-keeping",
+      "target": "dept:compliance",
+      "kind": "sop-department"
+    },
+    {
+      "source": "sop:ewc-classification",
+      "target": "dept:compliance",
+      "kind": "sop-department"
+    },
+    {
+      "source": "sop:quote-format",
+      "target": "dept:sales",
+      "kind": "sop-department"
+    },
+    {
+      "source": "sop:follow-up-cadence",
+      "target": "dept:sales",
+      "kind": "sop-department"
+    },
+    {
+      "source": "sop:fee-calculation",
+      "target": "dept:finance",
+      "kind": "sop-department"
+    },
+    {
+      "source": "sop:invoice-run",
+      "target": "dept:finance",
+      "kind": "sop-department"
+    },
+    {
+      "source": "sop:voice-guide",
+      "target": "dept:comms",
+      "kind": "sop-department"
+    },
+    {
+      "source": "sop:triage-rules",
+      "target": "dept:comms",
+      "kind": "sop-department"
+    },
+    {
+      "source": "sop:sop-template",
+      "target": "dept:knowledge",
+      "kind": "sop-department"
+    },
+    {
+      "source": "sop:carrier-record-format",
+      "target": "dept:knowledge",
+      "kind": "sop-department"
+    }
+  ]
+}

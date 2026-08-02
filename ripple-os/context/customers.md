@@ -83,13 +83,16 @@ tree_planted: false            # one per new contract
 
 ## Live customer list
 
-`[FILL IN — no customer names, sites, volumes or contract values are recorded
-in this repo yet. Do not invent them. Add real records under this heading, or
-point this section at the ClickUp/Notion list that holds them.]`
+**None. Ripple is pre-revenue as of 2026-08** — no signed customers, no live
+sites, no movements arranged. This is the true state, not a missing record.
 
-| Customer | Sites | Segment | Streams | Movements/mo | Status |
-| --- | --- | --- | --- | --- | --- |
-| `[FILL IN]` | | | | | |
+Add real records under this heading as they are won, one row per customer and a
+full site record per site. Never invent one to test a workflow — use a clearly
+fake `SITE-TEST` id if you need a worked example.
+
+| Customer | Sites | Segment | Streams | Movements/mo | Fee basis | Status |
+| --- | --- | --- | --- | --- | --- | --- |
+| — | — | — | — | — | — | no customers yet |
 
 ---
 

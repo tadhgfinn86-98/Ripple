@@ -111,12 +111,30 @@ A movement cannot pass step 6 with a gap. That is a hard stop, not a warning.
 
 ## Current numbers
 
-| Metric | Value |
-| --- | --- |
-| Live customers | `[FILL IN]` |
-| Movements per month | `[FILL IN]` |
-| Average fee per customer per year | `[FILL IN]` |
-| Recurring run rate (retained compliance) | `[FILL IN]` |
-| Monthly recurring revenue | `[FILL IN]` |
-| Carriers/outlets in network | `[FILL IN]` |
-| Landfill diversion rate | `[FILL IN]` |
+**Ripple is pre-revenue.** Trading has not started as of 2026-08. These are
+zeroes because they are true, not because they are unknown — agents should treat
+an empty customer or supplier list as the actual state of the business, not as a
+missing record to chase.
+
+| Metric | Value | As of |
+| --- | --- | --- |
+| Live customers | **0** | 2026-08 |
+| Movements per month | **0** | 2026-08 |
+| Average fee per customer per year | **0** — no fee earned yet | 2026-08 |
+| Recurring run rate | **£0** | 2026-08 |
+| Verified carriers/outlets in network | **0** | 2026-08 |
+| Landfill diversion rate | n/a — no movements yet | 2026-08 |
+
+### What being pre-revenue means for the OS
+
+- **The network is the first constraint, not sales.** With zero verified
+  suppliers, every enquiry becomes a `GAP-` record. Matching cannot return a
+  single legal candidate until `suppliers.md` has real entries. That is the
+  highest-leverage work in the business right now.
+- **Ripple's own upper-tier broker registration must exist before the first
+  movement is arranged**, not before the first invoice. `[FILL IN — is it in place?]`
+- **The first customer sets the fee precedent.** Whatever basis and baseline the
+  first contract uses will be argued from afterwards. Worth getting the written
+  baseline right on customer one.
+- **No baselines exist yet**, so no savings-share fee has ever been tested
+  against a real invoice.
