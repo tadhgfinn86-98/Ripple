@@ -67,6 +67,15 @@ contract:
   term: "[FILL IN]"
   notice: "[FILL IN]"
   review_date: "[FILL IN]"
+fee:
+  basis: savings_share | managed_value   # savings share needs a real baseline
+  baseline_annual_cost: "[FILL IN — from their prior invoices]"
+  baseline_agreed_in_writing: false      # must be true before any fee is invoiced
+  baseline_evidence: "[FILL IN — Drive path to the invoices]"
+  year_one_fee: "[FILL IN]"              # 50% of saving, or 15% of managed value
+  year_one_ends: "[FILL IN]"             # the month-12 cliff
+  year_two_basis: "[FILL IN — unset in offers.md]"
+  compliance_retainer: "[FILL IN — £30–75/month, or none]"
 tree_planted: false            # one per new contract
 ```
 
@@ -93,7 +102,9 @@ finance reads the same board to detect ageing. Cold threshold: `[FILL IN — day
 
 ## Segment-level notes for agents
 
-- Always capture the **site**, not just the company — pricing is postcode-sensitive.
+- Always capture the **site**, not just the company — cost is postcode-sensitive.
+- Always capture their **current invoice**. Ripple's brokerage fee is 50% of the
+  saving against it; with no baseline the customer can only go on managed value.
 - Always capture **frequency**; a one-off skip and a weekly lift are different products.
 - Always capture the **SIC code** at onboarding; without it a WTN cannot be completed correctly later.
 - Never assume a stream's EWC code from the segment. Compliance classifies per enquiry.

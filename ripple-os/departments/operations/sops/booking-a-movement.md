@@ -22,8 +22,11 @@ unit of compliance.
    months. See `departments/compliance/sops/duty-of-care-check.md`.
 3. **WTN arranged.** Method known — e-WTN portal, paper, or season ticket — and
    who raises it agreed.
-4. **Margin above floor.** Per `context/offers.md` minimum, or an explicit
-   written decision by Tadhg to accept below it.
+4. **Fee basis agreed.** The customer is on a savings share (with a baseline
+   agreed in writing) or on managed value, and the resulting fee clears the
+   minimum contract value in `context/offers.md` — or Tadhg has decided in
+   writing to accept below it. Supplier cost is passed through at cost; Ripple
+   takes no spread on the movement itself.
 
 Any one missing → **stop**. Not "book and chase". The compliance gate outranks
 the revenue target every time.
@@ -36,8 +39,10 @@ the revenue target every time.
 3. Confirm the date to the producer, with what they must do — bin out by 06:00,
    gate unlocked, no contamination.
 4. Hold the date in Google Calendar with site, stream, supplier, and access notes.
-5. Record the agreed prices at booking: `charge_to_producer` and expected
-   `supplier_cost`. These are the baseline finance reconciles against.
+5. Record the expected `supplier_cost` at booking. This is what gets passed
+   through at cost, and what finance reconciles the actual supplier invoice
+   against. It is also the "new cost" side of the saving the fee is charged on —
+   so an unrecorded cost here becomes an unprovable saving later.
 6. After collection, capture **weighbridge ticket** and **WTN**. File to Drive,
    attach to the `MOV-` record. Without a ticket, tonnage is estimated and margin
    is approximate — say so.
@@ -55,8 +60,8 @@ supplier: SUP-000
 ewc: "15 01 01"
 collection_date: 2026-08-01
 container: "1100L x 4"
-booked_charge: "[FILL IN]"
-expected_supplier_cost: "[FILL IN]"
+expected_supplier_cost: "[FILL IN]"     # passed through at cost, not marked up
+counts_toward_saving: true               # exclude statutory/volume moves
 compliance: { carrier_reg_valid_at_date: true, permit_covers_ewc: true, wtn_method: "..." }
 actual:
   tonnage: "[from weighbridge ticket]"

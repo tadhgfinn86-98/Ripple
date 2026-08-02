@@ -14,23 +14,43 @@ against the incumbent hauler's invoice without a translation step.
 ## Structure — in this order
 
 1. **What we'd do.** One or two sentences. The streams, the frequency, the site.
-2. **The price.** Per movement, per month, annualised. In a table.
-3. **What's included.** WTNs and duty-of-care records, one point of contact,
+2. **The baseline.** Which invoices, which months, like-for-like. The fee is
+   derived from this, so it goes on the quote.
+3. **The cost, passed through at cost.** Per stream, per month, annualised.
+4. **Ripple's fee.** 50% of year-one saving, or 15% of managed value. Shown as
+   its own line — never blended into the cost.
+5. **What's included.** WTNs and duty-of-care records, one point of contact,
    reporting. Real inclusions only.
-4. **What costs extra.** Every surcharge, listed. Nothing hidden for invoice two.
-5. **Comparison** (only where the audit gave a current invoice): current cost,
-   Ripple cost, difference, and the compliance gaps found.
-6. **Terms.** Contract length, notice, payment terms, quote validity.
-7. **Next step.** One clear action, one date.
+6. **What costs extra.** Every surcharge, listed. Nothing hidden for invoice two.
+   Compliance is £150–350 one-off or £30–75/month retained — say which applies.
+7. **Comparison.** Current annual cost, new annual cost, saving, Ripple's share,
+   what the producer keeps, and the compliance gaps found.
+8. **Terms.** Contract length, notice, payment terms, quote validity — and what
+   happens at month 12 when the year-one share ends.
+9. **Next step.** One clear action, one date.
 
-## Price table
+## Price tables — two of them, never merged
 
-| Stream | EWC | Container | Frequency | Per movement | Per month |
+**Cost, passed through at cost**
+
+| Stream | EWC | Container | Frequency | Per movement | Per year |
 | --- | --- | --- | --- | --- | --- |
 | Cardboard, flattened | 15 01 01 | 1100L × 4 | Weekly | `[FILL IN]` | `[FILL IN]` |
 
-Monthly = per movement × movements per month. Weekly = **4.33** movements/month
-(52 ÷ 12), not 4. Fortnightly = 2.17. State the basis on the quote.
+**Ripple's fee**
+
+| | |
+| --- | --- |
+| Current annual cost (baseline) | `[FILL IN]` |
+| New annual cost | `[FILL IN]` |
+| Annual saving | `[FILL IN]` |
+| Ripple's share — 50%, year one | `[FILL IN]` |
+| You keep | `[FILL IN]` |
+
+Or, where there is no baseline: **15% of managed value** = `[FILL IN]`.
+
+Annual = per movement × movements per month × 12. Weekly = **4.33**
+movements/month (52 ÷ 12), not 4. Fortnightly = 2.17. State the basis.
 
 ## Voice
 
@@ -44,12 +64,16 @@ Follow `departments/comms/sops/voice-guide.md`. Specifically:
 
 ## Hard rules
 
-- No price is ever invented. If `context/offers.md` has `[FILL IN]` for that
-  stream, the quote goes to Tadhg as a draft with the gap named. It does not go
-  to the producer.
+- No price and no **baseline** is ever invented. If the supplier cost or the
+  prior invoices are missing, the quote goes to Tadhg as a draft with the gap
+  named. It does not go to the producer.
+- Cost and fee are shown separately. A blended per-lift figure looks like a
+  markup and forfeits the thing that makes a savings share defensible.
 - No quote leaves without: confirmed EWC code, compliance-cleared outlet, expiry
-  date, scheduled follow-up.
-- Margin below the floor in `offers.md` needs an explicit written decision first.
+  date, scheduled follow-up, and a stated baseline.
+- A fee below the minimum contract value needs an explicit written decision first.
+- A quote whose term runs past month 12 carries the year-two blocker until
+  `offers.md` sets that basis.
 - Ex-VAT, GBP, stated on the quote.
 - Landfill tax on landfill-bound streams shown as a pass-through line, since it
   moves each April.

@@ -23,29 +23,45 @@ with the paperwork intact, replacing a dozen vendor relationships with one.
 
 ## How Ripple makes money
 
-**Margin per movement.** For each collection:
+**Fees. Not a markup.** Confirmed 2026-08-02: supplier cost is passed through to
+the producer **at cost**, and Ripple charges a stated fee on top.
 
 ```
-margin = charge_to_producer − cost_from_supplier
+producer pays  =  supplier_cost (at cost)  +  ripple_fee
+ripple_revenue =  ripple_fee
 ```
 
-Where `cost_from_supplier` is haulage + gate fee (or minus a rebate, when the
-material has positive value — clean cardboard, some metals). One movement = one
-collection/delivery event = the unit of both margin and compliance.
+| Line | Rate | Recurring? |
+| --- | --- | --- |
+| Brokerage — savings share | **50% of year-one saving** vs an agreed baseline | year one only |
+| Brokerage — managed value | **15% of managed annual spend** | yes |
+| Audit — free tier | £0 (one invoice, three photos, one page, 48h) | — |
+| Audit — paid deep work | **£150 – £400** | one-off |
+| Compliance — one-off | **£150 – £350** | one-off |
+| Compliance — retained | **£30 – £75 / month** | **yes** |
+| Contract / tender support | `[FILL IN]` | one-off |
+| Reporting retainer | `[FILL IN]` | `[FILL IN]` |
 
-Secondary income lines (all optional, all `[FILL IN]` on rate):
+Three things follow from pass-through, and they run through the whole OS:
 
-- Contract / tender support fee for benchmarking and negotiating on a client's behalf.
-- Reporting retainer for periodic volume / diversion / cost reporting.
-- Rebate share where a material sells into an end-market at value.
+1. **The saving is verifiable.** A producer can check Ripple's supplier invoices
+   against their old ones. That is what makes charging half of it defensible —
+   and a quiet markup would destroy it.
+2. **The unit of revenue is the customer-year, not the movement.** A movement is
+   still the unit of *cost* and of *compliance*, but margin per movement is zero
+   by design. Finance never reports it.
+3. **The audit is commercially load-bearing.** No prior invoice → no baseline →
+   no provable saving → the customer can only go on managed value. The "one
+   invoice" the free audit asks for is the thing the fee is calculated from.
 
-Target margin per movement: **[FILL IN — £ or % per movement]**
-Target margin percentage on a standard non-haz movement: **[FILL IN — %]**
-Minimum acceptable margin below which a movement isn't worth booking: **[FILL IN]**
+Minimum contract value below which a customer isn't worth taking: **[FILL IN]**
+Year-two basis when the year-one savings share ends: **[FILL IN]** — unset, and
+it blocks every quote whose term runs past month 12.
 
 ## Why brokerage works here
 
-- Producers get one relationship, one invoice, benchmarked pricing, and audit-ready paperwork.
+- Producers get one relationship, one invoice, benchmarked pricing, audit-ready
+  paperwork — and a broker whose fee only exists if it saved them money.
 - Ripple carries no fleet cost, no depot, no bin stock — the cost base is time and knowledge.
 - Suppliers get filled vehicles and pre-qualified, correctly-classified loads.
 - The moat is the **network**: which facility takes which EWC code, in which
@@ -86,7 +102,8 @@ Minimum acceptable margin below which a movement isn't worth booking: **[FILL IN
 6. **Compliance gate** — carrier registration + facility permit + WTN plan verified (`compliance`)
 7. **Book** — date confirmed with carrier and producer (`operations`)
 8. **Movement** — collection happens; WTN and weighbridge ticket captured
-9. **Reconcile** — supplier cost vs charge-out → actual margin (`finance`)
+9. **Reconcile** — actual supplier invoice vs expected; realised saving vs the
+   saving the fee was quoted on (`finance`)
 10. **Invoice** — issued and chased (`finance`)
 11. **Report** — volumes, diversion, cost back to the producer (`finance` + `knowledge`)
 
@@ -98,7 +115,8 @@ A movement cannot pass step 6 with a gap. That is a hard stop, not a warning.
 | --- | --- |
 | Live customers | `[FILL IN]` |
 | Movements per month | `[FILL IN]` |
-| Average margin per movement | `[FILL IN]` |
+| Average fee per customer per year | `[FILL IN]` |
+| Recurring run rate (retained compliance) | `[FILL IN]` |
 | Monthly recurring revenue | `[FILL IN]` |
 | Carriers/outlets in network | `[FILL IN]` |
 | Landfill diversion rate | `[FILL IN]` |

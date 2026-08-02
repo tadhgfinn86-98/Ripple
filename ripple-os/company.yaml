@@ -14,7 +14,23 @@ company:
   role: >
     Arranges movement of waste between producers and licensed carriers /
     permitted facilities. Does not collect, carry, store or treat waste.
-  revenue_unit: margin per movement
+  revenue_unit: fee per customer per year
+  # Confirmed 2026-08-02: PURE FEE, supplier cost passed through at cost.
+  # Ripple takes no spread on the supplier invoice. See context/offers.md and
+  # departments/finance/sops/fee-calculation.md.
+  pricing:
+    brokerage:
+      savings_share: 0.50      # of year-one saving vs an agreed baseline
+      managed_value: 0.15      # of managed annual spend, where no baseline exists
+      year_two_onward: "[FILL IN — unset; blocks any quote past month 12]"
+    audit:
+      free_tier: 0             # one invoice + three photos -> one-page report, 48h
+      paid_deep: [150, 400]    # GBP, one-off
+    compliance:
+      one_off: [150, 350]      # GBP
+      retained_monthly: [30, 75]  # GBP/month — the only recurring line today
+    contract_tender_support: "[FILL IN]"
+    reporting_retainer: "[FILL IN]"
   registrations:
     waste_broker_dealer:
       tier: upper  # required to arrange movements as a broker
@@ -132,19 +148,21 @@ departments:
     label: Finance
     colour: "#3B5BA5"
     mission: >
-      Know the margin on every movement, what has been invoiced, and what is
-      going cold — before it goes cold.
+      Know what every customer earns Ripple in fees, whether the saving Ripple
+      claimed is real, and what is going cold — before it goes cold.
     owns:
-      - margin per movement (charge-out minus supplier cost)
+      - fee revenue: savings share, managed value, audit, compliance
+      - verifying claimed savings against actual supplier invoices
+      - supplier cost pass-through (checked, not marked up)
       - invoicing and payment chasing
-      - revenue and volume reporting
+      - the month-12 cliff and recurring run rate
       - deal ageing / cold-deal detection
     agents:
       - id: revenue-pulse
         file: departments/finance/agents/revenue-pulse.md
     sops:
-      - id: margin-calculation
-        file: departments/finance/sops/margin-calculation.md
+      - id: fee-calculation
+        file: departments/finance/sops/fee-calculation.md
       - id: invoice-run
         file: departments/finance/sops/invoice-run.md
     tools:

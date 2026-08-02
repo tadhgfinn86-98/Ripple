@@ -12,8 +12,13 @@ Ripple Recycling is a **broker**, not a carrier. Ripple does not own bins,
 lorries, or a transfer station, and never takes physical possession of waste.
 Ripple arranges the movement of waste between a **producer** (the customer whose
 site the waste comes from) and a **licensed carrier or permitted facility**, and
-earns a **margin per movement** — the gap between the gate/haulage price Ripple
-is charged by the supplier and the price Ripple charges the producer.
+charges a **fee** for doing so. Supplier cost is passed through to the producer
+**at cost** — Ripple takes no spread on the movement. Confirmed 2026-08-02.
+
+Fees: **50% of year-one saving** against an agreed baseline, or **15% of managed
+value** where no baseline exists; **£150–400** paid deep audit; compliance
+**£150–350** one-off or **£30–75/month** retained. Full detail in
+`context/offers.md`.
 
 Consequences of being a broker, which shape everything below:
 
@@ -25,6 +30,12 @@ Consequences of being a broker, which shape everything below:
   the paperwork. → `departments/compliance/`
 - Ripple's real asset is the **carrier/outlet network** and knowing which
   facility takes which **EWC code** at what price. → `context/suppliers.md`
+- Because cost is passed through, the **saving is verifiable by the producer** —
+  that is what makes charging half of it defensible. Never mark up a supplier
+  invoice, and never blend cost and fee into one number.
+- The **prior invoice is the baseline** the fee is calculated from. No invoice,
+  no provable saving, no savings share. That makes the free audit commercially
+  load-bearing, not just a lead magnet.
 - Scope today is **non-hazardous commercial waste**. Hazardous waste has extra
   consignment-note duties and is out of scope unless explicitly opened up.
 
@@ -44,7 +55,7 @@ and slice of context. Full machine-readable definition lives in `company.yaml`.
 | **operations** | Waste enquiries, carrier/outlet matching, booking movements           |
 | **compliance** | Duty of care, waste transfer notes, licences, EWC codes, broker reg.  |
 | **sales**      | Inbound enquiries, quotes, pipeline, follow-up                        |
-| **finance**    | Margin per movement, invoicing, what's gone cold, revenue reporting   |
+| **finance**    | Fee revenue, verifying savings are real, invoicing, what's gone cold  |
 | **comms**      | Inbox triage across all channels, drafting replies in Tadhg's voice   |
 | **knowledge**  | SOPs, carrier network records, keeping this context current           |
 
@@ -99,7 +110,7 @@ it the context that agent needs.
 | "Book it" — producer has accepted | `operations` → `booking-a-movement.md` | `MOV-` |
 | Anything about WTNs, licences, permits, duty of care | `compliance/compliance-watch` | register |
 | "Are we compliant?" / weekly sweep | `compliance/compliance-watch` | register |
-| "How are we doing?" / revenue, margin, cash | `finance/revenue-pulse` | pulse |
+| "How are we doing?" / revenue, fees, cash | `finance/revenue-pulse` | pulse |
 | Invoice, dispute, remittance, payment chase | `finance/revenue-pulse` → `invoice-run.md` | `INV-` |
 | "What's in the inbox?" / triage | `comms/inbox-triage` | summary |
 | "Reply to this" / draft anything outbound | `comms/inbox-triage` | draft |
@@ -113,9 +124,11 @@ it the context that agent needs.
   `compliance-watch`. No revenue target overrides a compliance gap.
 - **Comms owns the outbound voice.** No other agent writes to a customer or
   supplier directly.
-- **Finance owns the margin formula.** Matching and quoting use
-  `departments/finance/sops/margin-calculation.md` — one formula, so quoted and
-  actual margin are comparable.
+- **Finance owns the fee formula.** Matching and quoting use
+  `departments/finance/sops/fee-calculation.md` — one method, so a quoted saving
+  and a realised saving are comparable.
+- **Cost is passed through at cost.** No agent marks up a supplier invoice, for
+  any reason. Cost and fee are always shown as separate numbers.
 - **Knowledge owns the files.** Durable corrections are commits, not replies.
 - **Every handoff is a record**, not a summary. The record is what the next agent
   reads.
@@ -128,7 +141,7 @@ it the context that agent needs.
 | operations | `carrier-match` | enquiry → ranked legal outlets + indicative margin |
 | compliance | `compliance-watch` | EWC confirmation, licence expiries, missing WTNs, the booking gate |
 | sales | `quote-builder` | matched enquiry → quote + follow-up schedule |
-| finance | `revenue-pulse` | movements, margin, cash, cold deals — weekly |
+| finance | `revenue-pulse` | fees, realised savings, cash, cold deals — weekly |
 | comms | `inbox-triage` | triage all inbound, draft replies in Tadhg's voice |
 | knowledge | `sop-keeper` | keep SOPs, carrier records, context and the graph true |
 
@@ -170,5 +183,6 @@ it the context that agent needs.
   in yd³ for skips, litres for bins. Dates **ISO 8601** (`2026-08-01`).
 - Waste types are always carried with their **six-digit EWC code**
   (e.g. `20 03 01` mixed municipal waste). No EWC code = enquiry is incomplete.
-- A **movement** is one collection/delivery event. It is the unit of margin and
-  the unit of compliance.
+- A **movement** is one collection/delivery event. It is the unit of **cost** and
+  of **compliance** — but not of revenue. Revenue is a fee, per customer, per
+  year. Margin per movement is zero by design; never report it.

@@ -31,14 +31,21 @@ ledger is a Google Drive sheet and invoices are produced from it.
    critical *and* unbilled revenue. Raise to compliance; do not invoice around it.
    `[ASSUMPTION — confirm you'd rather hold than bill and chase paperwork after.]`
 3. **Reconcile first.** Actual supplier cost against expected, per
-   `margin-calculation.md`. Invoice the agreed charge-out — never a
-   back-calculation from supplier cost, which would leak Ripple's margin.
+   `fee-calculation.md`. Then invoice **two separate things**: the supplier cost
+   at cost (pass-through, no markup, ever) and Ripple's fee. They are separate
+   lines on the invoice, and the producer can check the first against the
+   supplier's own paperwork — that is the point.
 4. **Apply surcharges** that actually occurred, each evidenced: contamination
    photo, overweight ticket, wasted-journey note. An unevidenced surcharge is a
    dispute waiting to happen.
-5. **Build the invoice.** One line per movement: date, site, stream + EWC,
-   container, charge. Landfill tax shown separately where it applies. Ex-VAT
-   subtotal, VAT, total.
+5. **Build the invoice.** A pass-through section — one line per movement: date,
+   site, stream + EWC, container, cost at cost — then a fee section: the
+   brokerage fee (savings share or managed value), plus any audit or compliance
+   line (£150–400 audit, £150–350 one-off, £30–75/month retained). Landfill tax
+   shown separately. Ex-VAT subtotal, VAT, total.
+5b. **Before invoicing a savings-share fee**, confirm the baseline is agreed in
+   writing and the realised saving supports the amount. No agreed baseline → the
+   fee is not invoiceable yet. Say so; don't bill it and argue later.
 6. **Check before sending:** right entity, right PO reference `[FILL IN — do
    customers use POs?]`, right site, no duplicate movement, no movement from a
    prior invoice.
@@ -62,8 +69,15 @@ lines:
     stream: "cardboard, flattened"
     ewc: "15 01 01"
     container: "1100L x 4"
-    charge: "[FILL IN]"
+    cost_at_cost: "[FILL IN]"     # pass-through, never marked up
     surcharges: []
+fee_lines:
+  - type: brokerage_savings_share
+    basis: "50% of year-one saving"
+    realised_saving_to_date: "[FILL IN]"
+    amount: "[FILL IN]"
+  - type: compliance_retainer
+    amount: "[FILL IN — £30–75]"
 subtotal_ex_vat: "[FILL IN]"
 vat: "[FILL IN]"
 total: "[FILL IN]"
@@ -90,6 +104,8 @@ status: draft | sent | paid | overdue | disputed
 ## Never
 
 - Never invoice a movement with no WTN without a recorded decision to do so.
-- Never invent a charge to fill a `[FILL IN]`.
+- Never invent a charge, or a saving, to fill a `[FILL IN]`.
+- Never mark up a supplier's cost, by any amount, for any reason.
+- Never invoice a savings-share fee against a baseline that isn't agreed in writing.
 - Never invoice twice for the same movement — the movement ID is the guard.
 - Never auto-send an invoice or a chaser.

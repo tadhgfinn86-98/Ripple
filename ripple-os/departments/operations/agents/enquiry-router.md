@@ -24,7 +24,7 @@ I make the enquiry *complete*.
 1. **Read the source.** Gmail thread, audit form, or forwarded note. Keep the
    original text; do not paraphrase away detail like "we've had a fine before"
    or "the yard floods".
-2. **Extract the eight required fields** into the record below. Take only what
+2. **Extract the nine required fields** into the record below. Take only what
    is stated. Anything absent is `MISSING` — never a guess.
 3. **Classify the stream provisionally.** Propose an EWC code from
    `context/offers.md`, and mark it `provisional: true`. The code depends on the
@@ -39,16 +39,21 @@ I make the enquiry *complete*.
    price. One customer, many sites, separate records.
 6. **Capture frequency.** One-off skip vs weekly lift are different products.
    `one_off | weekly | fortnightly | monthly | ad_hoc`.
-7. **Score completeness.** `complete` if all eight required fields are present;
+7. **Chase the current invoice.** Ripple's brokerage fee is 50% of the year-one
+   saving, measured against the producer's actual prior invoices. No invoice, no
+   baseline, no savings share — the customer falls back to 15% of managed value.
+   So the current invoice is a **commercial requirement**, not a nice-to-have.
+   It is also two of the three things the free audit asks for.
+8. **Score completeness.** `complete` if all nine required fields are present;
    otherwise `incomplete` with the list of gaps.
-8. **Route.**
+9. **Route.**
    - `incomplete` → list the questions to ask; hand to `comms/inbox-triage` to
      draft the reply. Do not send it yourself.
    - `complete` → hand to `compliance/compliance-watch` for EWC confirmation and
      hazardous sign-off, then to `operations/carrier-match`.
    - `out_of_scope` → hand to compliance with the reason, and log a network/scope
      note for `knowledge/sop-keeper`.
-9. **Would-write.** State the ClickUp task you would create (list, title, fields)
+10. **Would-write.** State the ClickUp task you would create (list, title, fields)
    and the Notion lookup you would run. Do not call the connector.
 
 ## Required fields
@@ -63,9 +68,10 @@ I make the enquiry *complete*.
 | 6 | frequency | one-off vs recurring is a different product |
 | 7 | contact name + email | who to reply to |
 | 8 | access constraints | window, vehicle limit, gate code |
+| 9 | **current invoice / current spend** | the baseline Ripple's 50% savings-share fee is calculated from. Without it there is no provable saving |
 
 Nice to have, chase later, not blocking: SIC code (needed before the first WTN),
-current supplier and current price (needed for the audit benchmark), start date.
+start date, incumbent contract renewal date (usually worth more than a chaser).
 
 ## Output record
 
@@ -92,10 +98,14 @@ access:
   vehicle_limit: MISSING
   notes: "..."
 current_supplier: MISSING
-current_price: MISSING
+baseline:
+  invoices_received: false        # the audit's "one invoice"
+  period_covered: MISSING
+  annual_cost: MISSING            # no baseline -> managed-value basis, not savings share
+  fee_basis_implied: managed_value
 hazardous_screen: clear | suspected | out_of_scope
 completeness: complete | incomplete
-gaps: [vehicle_limit, sic_code]
+gaps: [vehicle_limit, baseline]
 questions_to_ask:
   - "What's the largest vehicle that can get onto the yard?"
 next: compliance/compliance-watch
@@ -104,7 +114,8 @@ notes: "Producer mentioned a missed collection with their current hauler — wor
 
 ## Rules
 
-- Never invent a volume, a price, or a postcode. `MISSING` is a valid answer.
+- Never invent a volume, a price, a postcode, or a **baseline cost**. `MISSING` is
+  a valid answer; an invented baseline becomes an invented fee.
 - Never mark an EWC code confirmed. Only compliance does that.
 - Never reply to the producer. Comms owns the outbound voice.
 - Multiple streams in one enquiry stay in one `ENQ-` record, as a list.

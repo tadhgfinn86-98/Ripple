@@ -1,104 +1,168 @@
 # Offers — services and pricing
 
-> **This file is deliberately unpriced.** Nothing here may be invented.
-> Every `[FILL IN]` is a number only Tadhg can supply. An agent that needs a
-> price and finds `[FILL IN]` says so and stops — it does not estimate.
+> Pricing given by Tadhg 2026-08-02. Rates below are **real** — agents may use
+> them. Anything still marked `[FILL IN]` is unset and must not be estimated.
+>
+> **Ripple charges fees, not a hidden per-movement markup.** The fee is stated to
+> the producer and computed from a benchmarked baseline. That makes the audit
+> commercially load-bearing: no baseline, no saving, no fee.
 
-## 1. Free waste audit — the front door
+## 1. Waste audit — the front door
 
-The entry offer. No site visit, no sales call.
+Two tiers. The free one qualifies; the paid one is real work.
 
+### Free audit
 | | |
 | --- | --- |
 | Producer sends | one recent waste invoice + three photos of bins/skips/storage |
 | Ripple returns | a one-page report inside **48 hours** |
-| Report covers | current cost vs benchmark, compliance gaps, diversion opportunity |
+| Covers | current cost vs benchmark, compliance gaps, diversion opportunity |
 | Price | **Free** |
-| Purpose | qualifies the enquiry and produces the data a quote needs |
+| Purpose | qualifies the enquiry **and establishes the cost baseline every brokerage fee is calculated from** |
+
+### Paid deep audit
+| | |
+| --- | --- |
+| Price | **£150 – £400** one-off |
+| What moves it up the range | `[FILL IN — sites? streams? contract review? on-site element?]` |
+| Deliverable | `[FILL IN — how does this differ from the free one-pager: length, scope, data?]` |
+| Turnaround | `[FILL IN]` |
+| Credited against a brokerage fee if they go ahead? | `[FILL IN — yes / no]` |
 
 ## 2. Brokerage — the core service
 
-Ripple sources and manages the right carrier/outlet for every stream and bills
-the producer directly. One relationship replaces a dozen vendor calls.
+Ripple sources and manages the right carrier/outlet for every stream. One
+relationship replaces a dozen vendor calls.
 
-**Pricing mechanism:** margin per movement — `charge_to_producer − supplier_cost`.
+**Two fee bases. One is chosen per customer, at the start.**
 
-| Stream | Typical container | EWC code | Supplier cost | Charge-out | Margin |
-| --- | --- | --- | --- | --- | --- |
-| General waste / mixed municipal | 1100L bin, 8yd skip | `20 03 01` | `[FILL IN]` | `[FILL IN]` | `[FILL IN]` |
-| Dry mixed recycling (DMR) | 1100L bin | `[FILL IN — commonly 15 01 06]` | `[FILL IN]` | `[FILL IN]` | `[FILL IN]` |
-| Cardboard, clean baled | bale / 1100L | `15 01 01` | `[FILL IN — may be a rebate]` | `[FILL IN]` | `[FILL IN]` |
-| Food waste | 120L / 240L caddy | `20 01 08` | `[FILL IN]` | `[FILL IN]` | `[FILL IN]` |
-| Glass | 240L / 1100L | `[FILL IN — commonly 15 01 07]` | `[FILL IN]` | `[FILL IN]` | `[FILL IN]` |
-| Used cooking oil | IBC / drum | `20 01 25` | `[FILL IN — usually a rebate]` | `[FILL IN]` | `[FILL IN]` |
-| Pallet wrap / LDPE film | bale | `15 01 02` | `[FILL IN]` | `[FILL IN]` | `[FILL IN]` |
-| Mixed construction (non-haz) | 8yd skip | `17 09 04` | `[FILL IN]` | `[FILL IN]` | `[FILL IN]` |
-| Wood | skip | `[FILL IN — 17 02 01 or 20 01 38 by source]` | `[FILL IN]` | `[FILL IN]` | `[FILL IN]` |
+| Basis | Rate | Computed from | Best when |
+| --- | --- | --- | --- |
+| **Savings share** | **50% of year-one saving** | (benchmarked current annual cost) − (new annual cost) | there is a real prior invoice to benchmark against |
+| **Managed value** | **15% of managed value** | total annual waste spend Ripple manages | no usable baseline — new site, first contract, or the producer prefers a flat percentage |
 
-`[ASSUMPTION]` EWC codes above are the common ones for these streams from a
-commercial source. Compliance confirms per enquiry — the code depends on the
-process that produced the waste, not on what the material looks like.
-`20 xx xx` codes are municipal-type waste; `15 01 xx` are packaging waste from
-a commercial source. Getting this wrong is the classic broker failure.
+```
+savings_share_fee = (current_annual_cost − new_annual_cost) × 0.50     # year one
+managed_value_fee = managed_annual_spend × 0.15
+```
 
-**Charging structure** — confirm which model Ripple uses:
-- [ ] Per lift / per collection
-- [ ] Per tonne
-- [ ] Fixed monthly service charge + per-lift
-- [ ] Rebate share on positive-value materials
+`[ASSUMPTION]` The basis is chosen per customer at contract, not per movement,
+and not switched mid-term. `[FILL IN — confirm, and confirm who chooses.]`
 
-`[FILL IN — tick the ones used, and the rate for each]`
+### Open questions on the brokerage fee — these block quoting
 
-**Surcharges to pass through** (all `[FILL IN]`): contamination, overweight,
-failed access / wasted journey, out-of-hours, waiting time, bin/skip hire,
-delivery and exchange, congestion or clean-air zone charges.
+| Question | Why it matters |
+| --- | --- |
+| **Year two onward?** The saving share is explicitly *year-one*. | Without an answer, every quote past month 12 is unpriced. `[FILL IN — reverts to 15% of managed value? a renewal fee? nothing?]` |
+| **Billed how?** Monthly over year one, quarterly, or on proof of saving? | Determines the working-capital gap. `[FILL IN]` |
+| **Does Ripple also mark up the supplier invoice?** | If not, Ripple is a pass-through on cost and the fee is the whole revenue. If yes, the producer's "saving" is measured against a price Ripple set. `[FILL IN — see the note in `business.md`]` |
+| **What counts as "saving"?** Like-for-like service only, or does added compliance/reporting value count? | The producer will test this. `[FILL IN]` |
+| **Floor.** Minimum fee below which a customer isn't worth taking. | `[FILL IN — needed by `booking-a-movement.md`]` |
+| **Cap?** Any ceiling on a savings share for a very large account? | `[FILL IN]` |
+
+### Baseline rules
+
+The saving is only as defensible as the baseline. So:
+
+1. Baseline = the producer's **actual prior invoices**, not their estimate.
+   `[FILL IN — how many months of invoices constitute a baseline? Suggest 3.]`
+2. Baseline is **like-for-like**: same streams, same frequency, same sites.
+   Volume changes are adjusted out, not counted as Ripple's saving.
+3. Baseline is **recorded and agreed in writing** before the fee is charged.
+4. **Pass-through cost movements are excluded** — landfill tax rises each April,
+   and a saving that evaporates on an external rate change was never Ripple's.
+5. No baseline → savings share cannot be used → managed value basis.
 
 ## 3. Compliance service
 
-WTNs, duty of care records, and audit trails kept current and inspection-ready.
+Duty of care records, WTNs, licence checks, audit-ready trail.
 
-- Included with brokerage as standard, or priced separately? `[FILL IN]`
-- Retention: WTNs held **2 years** as required. Storage: Google Drive.
-- Standalone compliance-only clients (Ripple doesn't broker their waste): `[FILL IN — offered? price?]`
+| | |
+| --- | --- |
+| One-off | **£150 – £350** |
+| Retained | **£30 – £75 / month** |
+| What moves it up the range | `[FILL IN — sites? streams? volume of WTNs? multi-carrier?]` |
+| One-off covers | `[FILL IN — a compliance audit and a fixed-up record set?]` |
+| Retainer covers | `[FILL IN — ongoing WTN filing, expiry monitoring, inspection support?]` |
+| Included free with brokerage, or always charged? | `[FILL IN]` — this is the most commercially significant unanswered question in the file |
+| Sold standalone to non-brokerage clients? | `[FILL IN — yes/no]` |
+
+`[ASSUMPTION]` Retained compliance is the only genuinely recurring revenue line
+in the business today. £30–75/month is ~£360–900/year per customer, which is
+predictable in a way savings-share fees are not. Worth knowing whether that's
+deliberate.
 
 ## 4. Contract & tender support
 
-Prepare, benchmark and negotiate waste contracts on the producer's behalf so
-terms favour them, not the incumbent hauler.
+Prepare, benchmark and negotiate waste contracts so terms favour the producer.
 
-- Fee model: `[FILL IN — fixed fee / % of first-year saving / day rate]`
+- Fee model: `[FILL IN — separate fee, or is this what the 50% savings share already pays for?]`
 - Rate: `[FILL IN]`
 - Typical engagement length: `[FILL IN]`
 
 ## 5. Reporting
 
-Periodic reporting on volumes, diversion and cost. What left site, where it
-went, what it achieved.
+Volumes, diversion and cost. What left site, where it went, what it achieved.
 
 - Frequency: `[FILL IN — monthly / quarterly]`
-- Included or retained: `[FILL IN]`
+- Included in brokerage or retained separately: `[FILL IN]`
 - Retainer: `[FILL IN]`
+
+## Streams handled
+
+Ripple's fee doesn't change by stream, but the stream still determines the
+outlet, the gate fee, the EWC code and therefore the cost being benchmarked.
+
+| Stream | Typical container | EWC code | Supplier cost |
+| --- | --- | --- | --- |
+| General waste / mixed municipal | 1100L bin, 8yd skip | `20 03 01` | `[FILL IN]` |
+| Dry mixed recycling (DMR) | 1100L bin | `[FILL IN — commonly 15 01 06]` | `[FILL IN]` |
+| Cardboard, clean baled | bale / 1100L | `15 01 01` | `[FILL IN — may be a rebate]` |
+| Food waste | 120L / 240L caddy | `20 01 08` | `[FILL IN]` |
+| Glass | 240L / 1100L | `[FILL IN — commonly 15 01 07]` | `[FILL IN]` |
+| Used cooking oil | IBC / drum | `20 01 25` | `[FILL IN — usually a rebate]` |
+| Pallet wrap / LDPE film | bale | `15 01 02` | `[FILL IN]` |
+| Mixed construction (non-haz) | 8yd skip | `17 09 04` | `[FILL IN]` |
+| Wood | skip | `[FILL IN — 17 02 01 or 20 01 38 by source]` | `[FILL IN]` |
+
+`[ASSUMPTION]` EWC codes above are the common ones for these streams from a
+commercial source. Compliance confirms per enquiry — the code depends on the
+process that produced the waste, not on what the material looks like.
+
+**Supplier costs still matter even on a fee model**, because they are the "new
+cost" side of the saving calculation. An unpriced outlet means an unprovable
+saving, which means an uninvoiceable fee.
+
+## Surcharges
+
+Pass-through from the supplier, at cost unless stated: contamination,
+overweight, failed access / wasted journey, out-of-hours, waiting time,
+bin/skip hire, delivery and exchange, congestion or clean-air zone charges.
+
+`[FILL IN — passed through at cost, or marked up? And do surcharges count
+against the producer's "saving"?]`
 
 ## Commercial terms
 
 | | |
 | --- | --- |
-| Contract length | `[FILL IN]` |
+| Contract length | `[FILL IN]` — note a year-one savings share implies at least 12 months |
 | Notice period | `[FILL IN]` |
 | Payment terms to producer | `[FILL IN — e.g. 30 days from invoice]` |
-| Payment terms from Ripple to supplier | `[FILL IN]` — note the working-capital gap if Ripple pays before it's paid |
-| Price review | `[FILL IN — annual? indexed? landfill-tax-linked?]` |
+| Payment terms Ripple → supplier | `[FILL IN]` — the working-capital gap |
+| Fee billing frequency | `[FILL IN]` |
+| Price review | `[FILL IN]` |
 | Quote validity | `[FILL IN — e.g. 30 days]` |
-| Minimum movement value | `[FILL IN]` |
+| Minimum contract value | `[FILL IN]` |
 
 ## Landfill tax
 
-Landfill tax is a pass-through cost that materially moves the price of any
-landfill-bound stream, and it changes each April.
+Pass-through cost that materially moves any landfill-bound stream, and it
+changes each April. It must be excluded from the saving calculation or a
+statutory rate rise will look like Ripple losing the customer money.
 
 - Standard rate `[FILL IN — £/tonne, current year]`
 - Lower rate `[FILL IN — £/tonne]`
-- Treated as: `[FILL IN — passed through at cost / marked up]`
 
 ## What Ripple does not sell
 

@@ -60,11 +60,14 @@ SOPs 13 · agents 7 · departments 6 · graph nodes [n] — in sync: yes/no
 - departments/x/sops/y.md — review_date [FILL IN], never reviewed
 
 ## The five [FILL IN]s worth answering this month
-1. `offers.md` — charge-out for general waste (20 03 01). Blocks every quote.
-2. `offers.md` — minimum margin per movement. Blocks the booking floor.
+1. `offers.md` — **year-two brokerage basis**. The savings share is year-one
+   only; every quote running past month 12 is blocked until this is set.
+2. `offers.md` — minimum contract value. Blocks the sign/decline floor.
 3. `company.yaml` — upper-tier broker registration number + expiry. Blocks compliance sweeps.
-4. `suppliers.md` — first verified carrier record. Blocks all matching.
-5. `goals.md` — movements/month target. Blocks the revenue pulse run rate.
+4. `suppliers.md` — first verified carrier record with a dated gate fee. No cost,
+   no provable saving, no invoiceable fee. Blocks all matching.
+5. `offers.md` — whether the compliance service is included with brokerage or
+   always charged (£150–350 / £30–75 per month). It is the only recurring line.
 
 ## Open network gaps (n)
 - GAP-0000 — [EWC] in [postcode area], since [date]

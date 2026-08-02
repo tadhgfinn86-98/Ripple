@@ -78,13 +78,14 @@ LinkedIn have no connector — if messages arrive there, they're invisible to me
 14 archived.
 
 ## Blocked
-- Draft to [producer] has [FILL IN] where the DMR price should be. offers.md has
-  no charge-out for that stream.
+- Draft to [producer] has [FILL IN] where the DMR cost should be. No gate fee
+  recorded for that stream, so no saving can be shown.
 ```
 
 ## What always needs Tadhg
 
-- Any price not already written in `offers.md`
+- Any price not already written in `offers.md`, and any **saving** claimed to a
+  producer — the fee is half of it, so the number must be defensible
 - Any commitment to a date, volume or service level not already booked
 - Complaints, disputes, credits, refunds
 - Anything from a regulator, insurer, or solicitor

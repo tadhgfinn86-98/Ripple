@@ -3,6 +3,10 @@
 The supply side is Ripple's actual asset. A broker is only as good as its answer
 to: *who takes this EWC code, from this postcode, at what gate fee, how fast?*
 
+An unpriced supplier record is a commercial blocker, not an admin gap: with no
+gate fee there is no new cost, with no new cost there is no provable saving, and
+Ripple's fee is half the saving.
+
 Three kinds of supplier, and they are not interchangeable:
 
 | Type | What they are | What Ripple must verify |
@@ -96,9 +100,12 @@ Rank candidate outlets by, in order:
 5. **Service fit** — lead time and access constraints against the site's window.
 6. **Reliability** — missed-collection history.
 
-Then compute indicative margin against the producer charge-out. If the resulting
-margin is below the minimum in `offers.md` (`[FILL IN]`), flag it rather than
-booking it.
+Then size the **saving** against the producer's baseline. Ripple passes supplier
+cost through at cost and charges 50% of the year-one saving (or 15% of managed
+value), so the cheapest legal outlet is always the right answer — Ripple earns
+nothing by placing waste more expensively, and earns more by placing it well.
+If the resulting fee is below the minimum contract value in `offers.md`
+(`[FILL IN]`), flag it rather than signing it.
 
 ## End-markets — positive-value materials
 
